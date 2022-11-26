@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="conteiner">
+        <h1>Cruzadinha</h1>
+    <h2 onclick="tentativa()">tentativa</h2>
+    </div>
+    <div id="quadro_um" class="quadro_um">
+    </div>
+    <div id="quadro_dois" class="quadro_dois">
+
+    </div>
+</body>
+</html>
+
+<script>
+    // 25 horizontal
+    // 20 vertical
+
+    var list_palavras = [
+        '01 - O que são os <b>registradores</b>, para que servem, onde se localizam?',
+        '02 - O que é o <b>adress bus</b> e o <b>data bus</b>?',
+        '03 - O que é uma <b>CPU</b>',
+        '04 - O que é <b>ULA</b>',
+        '05 - Quais são os tipos de memórias e qual a finalidade de cada uma delas: </b>RAM, ROM, Eprom, Flash, memória de massa</b>.',
+        '06 - O que é o <b>DMA</b>, para que serve, como funciona?',
+        '07 - O que é o <b>CS</b> – Chip select?',
+        '08 - Pesquisa sobre a arquitetura do processador <b>I5</b> e do <b>I7</b>,  qual seu fabricante, início de fabricação, principais características',
+        '09 - O que é um processador <b>dual core</b> e <b>quad core</b>? ',
+        '10 - O que são <b>Threads</b>?',
+        '11 - Qual o uso da memória <b>CACHE</b>?'
+    ];
+
+    for(var mostra_palavra = 0; mostra_palavra < list_palavras.length; mostra_palavra ++){
+        quadro_um.innerHTML += `${list_palavras[mostra_palavra]} <br>`
+    }
+
+    var list_nomes = [
+        [ '.', '.', '.', '.', '.', '.', '.', '.', '.', 'Q', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.'],
+        [ '.', '.', '.', '.', '.', '.', '.', '.', '.', 'U', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.'],
+        [ '.', '.', '.', '.', '.', '.', '.', '.', '.', 'A', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.'],
+        [ '.', '.', '.', '.', '.', '.', '.', '.', '.', 'D', 'M', 'A', '.', '.', '.', '.', '.', '.', '.', '.', '.'],
+        [ '.', '.', '.', '.', '.', '.', '.', '.', '.', '-', '.', 'D', '.', '.', '.', '.', '.', '.', '.', '.', '.'],
+        [ '.', '.', '.', '.', '.', '.', '.', '.', '.', 'C', '.', 'R', 'O', 'M', '.', '.', '.', '.', '.', '.', '.'],
+        [ 'R', 'E', 'G', 'I', 'S', 'T', 'R', 'A', 'D', 'O', 'R', 'E', 'S', 'E', '.', '.', '.', '.', '.', '.', '.'],
+        [ '.', '.', '.', '7', '.', '.', '.', '.', 'U', 'R', '.', 'S', '.', 'M', '.', '.', '.', '.', '.', '.', '.'],
+        [ '.', '.', '.', '.', '.', '.', '.', '.', 'A', 'E', '.', 'S', '.', 'O', '.', '.', '.', '.', '.', '.', '.'],
+        [ '.', '.', '.', '.', '.', '.', '.', '.', 'L', '.', '.', '-', '.', 'R', '.', '.', '.', '.', '.', '.', '.'],
+        [ '.', '.', '.', '.', '.', '.', '.', '.', '-', '.', '.', 'B', '.', 'I', '5', 'C', '.', '.', '.', '.', '.'],
+        [ '.', '.', '.', '.', '.', '.', '.', '.', 'C', '.', '.', 'U', 'D', 'A', 'T', 'A', '-', 'B', 'U', 'S', '.'],
+        [ '.', '.', '.', '.', '.', '.', '.', '.', 'O', '.', '.', 'S', '.', '-', '.', 'C', 'P', 'U', 'R', 'C', 'T'],
+        [ '.', '.', '.', '.', '.', '.', '.', '.', 'R', '.', '.', '.', '.', 'D', '.', 'H', 'F', 'L', 'A', 'S', 'H'],
+        [ '.', '.', '.', '.', '.', '.', '.', '.', 'E', 'P', 'R', 'O', 'M', 'E', '.', 'E', '.', 'A', 'M', '.', 'R'],
+        [ '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '-', '.', '.', '.', '.', '.', '.', 'E'],
+        [ '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', 'M', '.', '.', '.', '.', '.', '.', 'A'],
+        [ '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', 'A', '.', '.', '.', '.', '.', '.', 'D'],
+        [ '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', 'S', '.', '.', '.', '.', '.', '.', 'S'],
+        [ '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', 'S', '.', '.', '.', '.', '.', '.', '.'],
+        [ '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', 'A', '.', '.', '.', '.', '.', '.', '.']
+    ]
+
+
+
+    for(var linha = 0; linha < list_nomes.length; linha++){
+
+        for(var coluna = 0; coluna < list_nomes[linha].length; coluna++){
+
+            if(list_nomes[linha][coluna] != '.'){
+                    quadro_dois.innerHTML += `<input id='id_letra' style='width: 30px; height: 30px; margin: 2px' maxlength="1">`
+            } 
+            else{
+                quadro_dois.innerHTML += `<input style='cursor: default; pointer-events: none; background-color: #fff0; border: none; width: 34px; height: 32px; margin: 2px'>`
+            }
+        }
+        quadro_dois.innerHTML += '<br>'
+    }
+
+
+    function tentativa(){
+        var letra = id_letra.value
+
+    for(var linha = 0; linha < list_nomes.length; linha++){
+
+        for(var coluna = 0; coluna < list_nomes[linha].length; coluna++){
+            //registradores
+            if(list_nomes[linha][coluna] == letra == 'R' && list_nomes[linha][coluna + 1] == letra == 'E' && list_nomes[linha][coluna + 2] == letra == 'G' && 
+            list_nomes[linha][coluna + 3] == letra == 'I' && list_nomes[linha][coluna + 4] == letra == 'S' && list_nomes[linha][coluna + 5] == letra == 'T' && 
+            list_nomes[linha][coluna + 6] == letra == 'R' && list_nomes[linha][coluna + 7] == letra == 'A' && list_nomes[linha][coluna + 8] == letra == 'D' && 
+            list_nomes[linha][coluna + 9] == letra == 'O' && list_nomes[linha][coluna + 10] == letra == 'R' && list_nomes[linha][coluna + 11] == letra == 'E' && 
+            list_nomes[linha][coluna + 12] == letra == 'S' ){
+                console.log('registradores');
+                return false;
+                style="color:rgb(0, 250, 33);";
+
+            }//adress bus
+            else if
+            (list_nomes[linha][coluna] == letra  == 'A' && list_nomes[linha +1 ][coluna] == letra == 'D' && list_nomes[linha + 2][coluna] == letra == 'R' &&
+            list_nomes[linha + 3][coluna] == letra == 'E' && list_nomes[linha + 4][coluna] == letra == 'S' && list_nomes[linha + 5][coluna] == letra == 'S' &&
+            list_nomes[linha + 6][coluna] == letra == '-' && list_nomes[linha + 7][coluna] == letra == 'B' && list_nomes[linha + 8][coluna] == letra == 'U' && 
+            list_nomes[linha + 9][coluna] == letra == 'S'){
+                console.log('adress bus');
+                return false;
+
+            } //CPU
+            else if
+            (list_nomes[linha][coluna] == letra == 'C' && list_nomes[linha][coluna + 1] == letra == 'P' && list_nomes[linha][coluna + 2] == letra == 'U'){
+                console.log('CPU');
+                return false;
+
+            }//ULA
+            else if
+            (list_nomes[linha][coluna] == letra == 'U' && list_nomes[linha +1][coluna] == letra == 'L' && list_nomes[linha + 2][coluna]  == letra == 'A'){
+                console.loh('ULA');
+                return false;
+
+            }//RAM
+            else if(list_nomes[linha][coluna] == letra == 'R' && list_nomes[linha + 1][coluna] == letra == 'A' && list_nomes[linha + 2][coluna] == letra == 'M'){
+                console.loh('RAM');
+                return false;
+
+            }//ROM
+            else if(list_nomes[linha][coluna] == letra == 'R' && list_nomes[linha][coluna + 1] == letra == 'O' && list_nomes[linha][coluna + 2] == letra == 'M'){
+                    console.log('ROM');
+                    return false;
+
+            }// EPROM
+            else if (list_nomes[linha][coluna] == letra == 'E' && list_nomes[linha][coluna +1] == letra == 'P' && list_nomes[linha][coluna + 2] == letra == 'R' &&
+            list_nomes[linha][coluna + 3] == letra == 'O' && list_nomes[linha][coluna + 4] == letra == 'M' ){
+                console.log('EPROM');
+                return false;
+
+            }//FLASH
+            else if(list_nomes[linha][coluna] == letra == 'F' && list_nomes[linha][coluna + 1] == letra == 'L' && list_nomes[linha][coluna + 2] == letra == 'A' &&
+            list_nomes[linha][coluna + 3] == letra == 'S' && list_nomes[linha][coluna + 4] == letra == 'H'){
+                console.log('FLASH');
+                return false;
+
+            }//Memória de Massa
+            else if(list_nomes[linha][coluna] == letra == 'M' && list_nomes[linha + 1][coluna] == letra == 'E' && list_nomes[linha + 2][coluna] == letra == 'M' &&
+            list_nomes[linha + 3][coluna] == letra == 'O' && list_nomes[linha + 4][coluna] == letra == 'R' && list_nomes[linha + 5][coluna] == letra == 'I' &&
+            list_nomes[linha + 6][coluna] == letra == 'A' && list_nomes[linha + 7][coluna] == letra == '-' && list_nomes[linha + 8][coluna] == letra == 'D' &&
+            list_nomes[linha + 9][coluna] == letra == 'E' && list_nomes[linha + 10][coluna] == letra == '-' && list_nomes[linha + 11][coluna] == letra == 'M' &&
+            list_nomes[linha + 12][coluna] == letra == 'A' && list_nomes[linha + 13][coluna] == letra == 'S' && list_nomes[linha + 14][coluna] == letra == 'S' &&
+            list_nomes[linha + 15][coluna] == letra == 'A'){
+                console.log('MEMORIA DE MASSA');
+                return false;
+
+            }// DMA
+            else if(list_nomes[linha][coluna] == letra == 'D' && list_nomes[linha][coluna + 1] == letra == 'M' && list_nomes[linha][coluna + 2] == letra == 'A'){
+                console.log('DMA');
+                return false;
+
+            }//CS
+            else if(list_nomes[linha][coluna] == letra == 'C' && list_nomes[linha + 1][coluna] == letra == 'S'){
+                console.log('CS');
+                return false;
+
+            }// data bus
+            else if(list_nomes[linha][coluna] == letra == 'D' && list_nomes[linha][coluna + 1] == letra == 'A' && list_nomes[linha][coluna + 2] == letra == 'T' &&
+            list_nomes[linha][coluna + 3] == letra == 'A' && list_nomes[linha][coluna + 4] == letra == '-' && list_nomes[linha][coluna + 5] == letra == 'B' &&
+            list_nomes[linha][coluna + 6] == letra == 'U' && list_nomes[linha][coluna + 7] == letra == 'S'){
+                console.log('data bus');
+                return false;
+
+            }//I5
+            else if(list_nomes[linha][coluna] == letra == 'I' && list_nomes[linha][coluna + 1] == letra == '5'){
+                console.log('I5');
+
+            }// I7
+            else if(list_nomes[linha][coluna] == letra == 'I' && list_nomes[linha + 1][coluna] == letra == '7'){
+                //style="color:rgb(0, 250, 33);";
+                console.log('I7');
+                return false;
+
+            }// DUAL CORE
+            else if(list_nomes[linha][coluna] == letra && list_nomes[linha + 1][coluna] == letra && list_nomes[linha + 2][coluna] == letra &&
+            list_nomes[linha + 3][coluna] == letra && list_nomes[linha + 4][coluna] == letra && list_nomes[linha + 5][coluna] == letra &&
+            list_nomes[linha + 6][coluna] == letra && list_nomes[linha + 7][coluna] == letra && list_nomes[linha + 8][coluna] == letra){
+                console.log('dual core');
+                return false;
+
+            }// QUAD CORE
+            else if(list_nomes[linha][coluna] == letra && list_nomes[linha + 1][coluna] == letra && list_nomes[linha + 2][coluna] == letra &&
+            list_nomes[linha + 3][coluna] == letra && list_nomes[linha + 4][coluna] == letra && list_nomes[linha + 5][coluna] == letra &&
+            list_nomes[linha + 6][coluna] == letra && list_nomes[linha + 7][coluna] == letra && list_nomes[linha + 8][coluna] == letra){
+                console.log('quad core');
+                return false;
+                
+            }//Threads
+            else if(list_nomes[linha][coluna] == letra && list_nomes[linha + 1][coluna] == letra && list_nomes[linha + 2][coluna] == letra &&
+            list_nomes[linha + 3][coluna] == letra && list_nomes[linha + 4][coluna] == letra && list_nomes[linha + 5][coluna] == letra &&
+            list_nomes[linha + 6][coluna] == letra && list_nomes[linha + 7][coluna] == letra){
+                console.log('THREADS');
+                return false;
+
+            }//CACHE
+            else if(list_nomes[linha][coluna] == letra && list_nomes[linha + 1][coluna] == letra && list_nomes[linha + 2][coluna] == letra
+            && list_nomes[linha + 3][coluna] == letra && list_nomes[linha + 4][coluna] == letra){
+                console.log('cache');
+                return false;
+
+            }
+            else{
+                console.log('nao encontrado');
+                
+            } 
+        }
+        console.log('rodada fora do for');
+    }
+    console.log('fim');
+    }
+
+</script>

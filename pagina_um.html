@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="conteiner">
+        <div class="conteiner_pagina">
+            <h1>CRUZADINHA</h1>
+            <p>Olá bem vindo a o jogo da cruzadinha<br>
+            vou te explicar como ele funciona certo?<br></p>
+                <button onclick = "explicacao('div_explicacao')"> Ver explicação</button>
+                <button> <a href="index.html"> Começa Jogo </a></button>
+    
+                <div id="div_explicacao" class="explicacao" style="display: none;" Align="justify">
+                </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    function explicacao(el){
+        var display = document.getElementById(el).style.display;
+      if (display == "none")
+        document.getElementById(el).style.display = 'block';
+      else
+        document.getElementById(el).style.display = 'none';
+        div_explicacao.innerHTML = `
+        <p>
+                    Bora la..<br>
+                    vai aparecer 11 pergunta na sua tela e a cruzadinha a  baixo, cada pergunta tera 1 ou mais palavras que você tera que bolocar dentro dos quadradinho em branco, nas pergunta tem palavras na cor <b>Vermelha</b> essas são as palavras que tem que ser colocada dentro dos quadrados.<br>
+                    Quando termina de completar uma palavra com cada letra dentro ne um quadrado você tera que clicar em tentativa que estara na parte de cima das perguntas se vc acerta as letras ficaram na cor verde e caso erra ficara vermelho.
+                    quando todos os quadrados tiverem verde você tera ganhado o jogo. E lembresse quando tiver de da espaço coloque um '-'<br>
+                    BOA PARTIDA!! :)
+                </p>
+                <button> <a href="index.html"> Começa Jogo </a></button>`
+    }
+    
+</script>
